@@ -15,13 +15,14 @@ import br.com.agentemaps.model.Administrador;
 @ManagedBean
 @SessionScoped
 public class AdministradorController {
+	
 	private Administrador administrador;
-	private DataModel<Administrador> listaAdministradors;
+	private DataModel<Administrador> listaAdministradores;
 
-	public DataModel<Administrador> getListarAdministradors() {
+	public DataModel<Administrador> getListarAdministradores() {
 		List<Administrador> lista = new AdministradorDAOImpl().listar();
-		listaAdministradors = new ListDataModel<Administrador>(lista);
-		return listaAdministradors;
+		listaAdministradores = new ListDataModel<Administrador>(lista);
+		return listaAdministradores;
 	}
 
 	public Administrador getAdministrador() {
@@ -38,12 +39,12 @@ public class AdministradorController {
 	}
 
 	public String prepararAlterarAdministrador() {
-		administrador = (Administrador) (listaAdministradors.getRowData());
+		administrador = (Administrador) (listaAdministradores.getRowData());
 		return "gerenciarAdministrador";
 	}
 
 	public String excluirAdministrador() {
-		Administrador administradorTemp = (Administrador) (listaAdministradors.getRowData());
+		Administrador administradorTemp = (Administrador) (listaAdministradores.getRowData());
 		AdministradorDAO dao = new AdministradorDAOImpl();
 		dao.excluir(administradorTemp);
 		return "index";
