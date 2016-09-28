@@ -34,6 +34,26 @@ public class Familia implements java.io.Serializable {
 	private String segmento;
 	private String area;
 	private String microarea;
+	private String cpfChefe;
+	private String chefeFamilia;
+	
+	@Column(name = "cpf_chefe")
+	public String getCpfChefe() {
+		return cpfChefe;
+	}
+
+	public void setCpfChefe(String cpfChefe) {
+		this.cpfChefe = cpfChefe;
+	}
+	@Column(name = "chefe_familia")
+	public String getChefeFamilia() {
+		return chefeFamilia;
+	}
+
+	public void setChefeFamilia(String chefeFamilia) {
+		this.chefeFamilia = chefeFamilia;
+	}
+
 	private Date data;
 	private TratamentoAgua tratamentoAgua;
 	private AbastecimentoAgua abastecimentoAgua;
@@ -221,7 +241,9 @@ public class Familia implements java.io.Serializable {
 		result = prime * result + ((area == null) ? 0 : area.hashCode());
 		result = prime * result + ((bairro == null) ? 0 : bairro.hashCode());
 		result = prime * result + ((cep == null) ? 0 : cep.hashCode());
+		result = prime * result + ((chefeFamilia == null) ? 0 : chefeFamilia.hashCode());
 		result = prime * result + ((codigoMunicipio == null) ? 0 : codigoMunicipio.hashCode());
+		result = prime * result + ((cpfChefe == null) ? 0 : cpfChefe.hashCode());
 		result = prime * result + ((data == null) ? 0 : data.hashCode());
 		result = prime * result + ((destinoFezes == null) ? 0 : destinoFezes.hashCode());
 		result = prime * result + ((destinoLixo == null) ? 0 : destinoLixo.hashCode());
@@ -265,10 +287,20 @@ public class Familia implements java.io.Serializable {
 				return false;
 		} else if (!cep.equals(other.cep))
 			return false;
+		if (chefeFamilia == null) {
+			if (other.chefeFamilia != null)
+				return false;
+		} else if (!chefeFamilia.equals(other.chefeFamilia))
+			return false;
 		if (codigoMunicipio == null) {
 			if (other.codigoMunicipio != null)
 				return false;
 		} else if (!codigoMunicipio.equals(other.codigoMunicipio))
+			return false;
+		if (cpfChefe == null) {
+			if (other.cpfChefe != null)
+				return false;
+		} else if (!cpfChefe.equals(other.cpfChefe))
 			return false;
 		if (data == null) {
 			if (other.data != null)
