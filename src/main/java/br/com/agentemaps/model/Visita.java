@@ -37,7 +37,7 @@ public class Visita implements java.io.Serializable {
 	}
 	public void setFamiliaId(int familiaId) {
 		this.familiaId = familiaId;
-	}
+	} 
 	@Column(name = "data")
 	public Date getData() {
 		return data;
