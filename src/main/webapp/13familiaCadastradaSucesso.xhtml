@@ -1,0 +1,32 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:pm="http://primefaces.org/mobile"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+<f:view renderKitId="PRIMEFACES_MOBILE">
+	<h:head>
+		<f:facet name="first">
+			<meta content='text/html; charset=UTF-8' http-equiv="Content-Type" />
+			<title>Família Cadastrada com SUCESSO</title>
+			<h:outputScript library="primefaces/poll" name="poll.js" />
+		</f:facet>
+	</h:head>
+	<h:body>
+		<pm:page>
+			<pm:content>
+				<h2>Família Cadastrada com SUCESSO!!</h2>
+				<h:form>
+					<pm:field>
+						<h:panelGrid columns="2" id="matchGrid" cellpadding="2">						
+							<h:commandButton action="index" value="OK" />
+						</h:panelGrid>
+					</pm:field>
+				</h:form>
+			</pm:content>
+		</pm:page>
+	</h:body>
+</f:view>
+</html>
+
