@@ -11,15 +11,14 @@ import javax.faces.model.ListDataModel;
 import br.com.agentemaps.dao.AgenteDAO;
 import br.com.agentemaps.dao.AgenteDAOImpl;
 import br.com.agentemaps.model.Agente;
+
 @ManagedBean
 @SessionScoped
 public class AgenteController {
-	
-	
+		
 	private Agente agente;
 	private DataModel<Agente> listaAgentes;	
 	
-
 	public AgenteController() { 
 		agente = new Agente(); 
 	}
