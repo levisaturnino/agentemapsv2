@@ -10,11 +10,6 @@ import org.hibernate.criterion.Restrictions;
 import br.com.agentemaps.model.Familia;
 import br.com.agentemaps.util.HibernateUtil;
 
-import org.hibernate.SessionFactory;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.stereotype.Repository;
-@Repository
 public class FamiliaDAOImpl implements FamiliaDAO{
 
 	Session sessao = null;
