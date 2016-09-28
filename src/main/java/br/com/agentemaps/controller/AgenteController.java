@@ -14,11 +14,15 @@ import br.com.agentemaps.model.Agente;
 @ManagedBean
 @SessionScoped
 public class AgenteController {
+	
+	
 	private Agente agente;
-	private DataModel<Agente> listaAgentes;
+	private DataModel<Agente> listaAgentes;	
 	
-	
-	
+
+	public AgenteController() { 
+		agente = new Agente(); 
+	}
 
 	public DataModel<Agente> getListarAgentes() {
 		List<Agente> lista = new AgenteDAOImpl().listar();

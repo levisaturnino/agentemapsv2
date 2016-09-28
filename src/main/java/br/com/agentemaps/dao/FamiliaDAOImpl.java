@@ -22,13 +22,13 @@ public class FamiliaDAOImpl implements FamiliaDAO{
 			sessao.save(familia);
 			transacao.commit();
 		} catch (Exception e) {
-			System.out.println("NÃ£o foi possivel inserir o familia. Erro: " + e.getMessage());
+			System.out.println("Não foi possível inserir a familia. Erro: " + e.getMessage());
 		} finally {
 			try {
 				if (this.sessao.isOpen())
 					sessao.close();
 			} catch (Throwable e2) {
-				System.out.println("Erro ao fechar operaÃ§Ã£o de inserÃ§Ã£o. Mensagem: " + e2.getMessage());
+				System.out.println("Erro ao fechar operação de insersão. Mensagem: " + e2.getMessage());
 			}
 		}
 	}
@@ -41,13 +41,13 @@ public class FamiliaDAOImpl implements FamiliaDAO{
 			sessao.update(familia);
 			transacao.commit();
 		} catch (Exception e) {
-			System.out.println("NÃ£o foi possivel alterar o familia. Erro: " + e.getMessage());
+			System.out.println("Não foi possível alterar a família. Erro: " + e.getMessage());
 		} finally {
 			try {
 				if (this.sessao.isOpen())
 					sessao.close();
 			} catch (Throwable e2) {
-				System.out.println("Erro ao fechar operaÃ§Ã£o de atualizacao. Mensagem: " + e2.getMessage());
+				System.out.println("Erro ao fechar operação de atualização. Mensagem: " + e2.getMessage());
 			}
 		}
 	}
@@ -60,12 +60,12 @@ public class FamiliaDAOImpl implements FamiliaDAO{
 			sessao.delete(familia);
 			transacao.commit();
 		} catch (Exception e) {
-			System.out.println("NÃ£o foi possivel excluir o familia. Erro: " + e.getMessage());
+			System.out.println("Não foi possível excluir a família. Erro: " + e.getMessage());
 		} finally {
 			try {
 				sessao.close();
 			} catch (Throwable e2) {
-				System.out.println("Erro ao fechar operaÃ§Ã£o de excluir. Mensagem: " + e2.getMessage());
+				System.out.println("Erro ao fechar operação de excluir. Mensagem: " + e2.getMessage());
 			}
 		}
 	}
@@ -92,7 +92,7 @@ public class FamiliaDAOImpl implements FamiliaDAO{
 				if (this.sessao.isOpen())
 					sessao.close();
 			} catch (Throwable e) {
-				System.out.println("Erro ao fechar operaÃ§Ã£o de consulta. Mensagem: " + e.getMessage());
+				System.out.println("Erro ao fechar operação de consulta. Mensagem: " + e.getMessage());
 			}
 		}
 		return familia;
@@ -118,7 +118,7 @@ public class FamiliaDAOImpl implements FamiliaDAO{
 				if (this.sessao.isOpen())
 					sessao.close();
 			} catch (Throwable e) {
-				System.out.println("Erro ao fechar operaÃ§Ã£o de consulta. Mensagem: " + e.getMessage());
+				System.out.println("Erro ao fechar operação de consulta. Mensagem: " + e.getMessage());
 			}
 		}
 		return familias;

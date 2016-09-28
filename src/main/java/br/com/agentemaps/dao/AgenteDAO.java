@@ -7,13 +7,13 @@ import br.com.agentemaps.model.Agente;
 
 public interface AgenteDAO {
 	
-	public void salvar(Agente administrador);
+	public void salvar(Agente agente);
 
 	public List<Agente> listar();
 
-	public void atualizar(Agente administrador);
+	public void atualizar(Agente agente);
 
-	public void excluir(Agente administrador);
+	public void excluir(Agente agente);
 	
 	public Agente getAgente(long id);
 

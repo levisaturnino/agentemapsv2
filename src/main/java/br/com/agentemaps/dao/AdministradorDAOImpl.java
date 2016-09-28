@@ -22,13 +22,13 @@ public class AdministradorDAOImpl implements AdministradorDAO {
 			sessao.save(administrador);
 			transacao.commit();
 		} catch (Exception e) {
-			System.out.println("NÃ£o foi possivel inserir o administrador. Erro: " + e.getMessage());
+			System.out.println("Não foi possível inserir o administrador. Erro: " + e.getMessage());
 		} finally {
 			try {
 				if (this.sessao.isOpen())
 					sessao.close();
 			} catch (Throwable e2) {
-				System.out.println("Erro ao fechar operaÃ§Ã£o de inserÃ§Ã£o. Mensagem: " + e2.getMessage());
+				System.out.println("Erro ao fechar operação de inserção. Mensagem: " + e2.getMessage());
 			}
 		}
 	}
@@ -41,13 +41,13 @@ public class AdministradorDAOImpl implements AdministradorDAO {
 			sessao.update(administrador);
 			transacao.commit();
 		} catch (Exception e) {
-			System.out.println("NÃ£o foi possivel alterar o administrador. Erro: " + e.getMessage());
+			System.out.println("Não foi possível alterar o administrador. Erro: " + e.getMessage());
 		} finally {
 			try {
 				if (this.sessao.isOpen())
 					sessao.close();
 			} catch (Throwable e2) {
-				System.out.println("Erro ao fechar operaÃ§Ã£o de atualizacao. Mensagem: " + e2.getMessage());
+				System.out.println("Erro ao fechar operação de atualização. Mensagem: " + e2.getMessage());
 			}
 		}
 	}
@@ -60,12 +60,12 @@ public class AdministradorDAOImpl implements AdministradorDAO {
 			sessao.delete(administrador);
 			transacao.commit();
 		} catch (Exception e) {
-			System.out.println("NÃ£o foi possivel excluir o administrador. Erro: " + e.getMessage());
+			System.out.println("Não foi possível excluir o administrador. Erro: " + e.getMessage());
 		} finally {
 			try {
 				sessao.close();
 			} catch (Throwable e2) {
-				System.out.println("Erro ao fechar operaÃ§Ã£o de excluir. Mensagem: " + e2.getMessage());
+				System.out.println("Erro ao fechar operação de excluir. Mensagem: " + e2.getMessage());
 			}
 		}
 	}
@@ -80,7 +80,7 @@ public class AdministradorDAOImpl implements AdministradorDAO {
 			sessao = HibernateUtil.getSessionFactory().openSession();
 			transacao = sessao.beginTransaction();
 			Criteria filtro = sessao.createCriteria(Administrador.class);
-			filtro.add(Restrictions.eq("familia", codigo));
+			filtro.add(Restrictions.eq("administrador", codigo));
 			administrador = (Administrador) filtro.uniqueResult();
 			this.transacao.commit();
 			transacao.commit();
@@ -94,7 +94,7 @@ public class AdministradorDAOImpl implements AdministradorDAO {
 				if (this.sessao.isOpen())
 					sessao.close();
 			} catch (Throwable e) {
-				System.out.println("Erro ao fechar operaÃ§Ã£o de consulta. Mensagem: " + e.getMessage());
+				System.out.println("Erro ao fechar operação de consulta. Mensagem: " + e.getMessage());
 			}
 		}
 		return administrador;
@@ -122,7 +122,7 @@ public class AdministradorDAOImpl implements AdministradorDAO {
 				if (this.sessao.isOpen())
 					sessao.close();
 			} catch (Throwable e) {
-				System.out.println("Erro ao fechar operaÃ§Ã£o de consulta. Mensagem: " + e.getMessage());
+				System.out.println("Erro ao fechar operação de consulta. Mensagem: " + e.getMessage());
 			}
 		}
 		return administradores;
