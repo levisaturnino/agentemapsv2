@@ -1,0 +1,81 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:pm="http://primefaces.org/mobile"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+<f:view renderKitId="PRIMEFACES_MOBILE">
+	<h:head>
+		<f:facet name="first">
+			<meta content='text/html; charset=UTF-8' http-equiv="Content-Type" />
+			<title>Cadastrar Agente</title>
+			<h:outputScript library="primefaces/poll" name="poll.js" />
+		</f:facet>
+	</h:head>
+	<h:body>
+		<pm:page>
+			<pm:content>
+
+				<h1>Cadastrar Agente</h1>
+				<h:form>
+
+					<pm:field>
+						<p:outputLabel for="nome" value="Nome" />
+						<p:inputText id="nome"
+							value="#{agenteController.agente.nome}" />
+					</pm:field>
+
+					<pm:field>
+						<p:outputLabel for="CPF" value="CPF" />
+						<p:password id="CPF"
+							value="#{agenteController.agente.cpf}" />
+					</pm:field>
+				
+					<pm:field>
+						<p:outputLabel for="selectOneRadio"
+							 value="Sexo"/>
+						<p:selectOneRadio id="selectOneRadio" value="#{agenteController.agente.sexo}">
+							<f:selectItem itemLabel="Masculino" itemValue="m" />
+							<f:selectItem itemLabel="Feminino" itemValue="f" />
+						</p:selectOneRadio>
+					</pm:field>
+					<pm:field>
+						<p:outputLabel for="login" value="Login" />
+						<p:inputText id="login"
+							value="#{agenteController.agente.login}" />
+					</pm:field>
+
+					<pm:field>
+						<p:outputLabel for="senha" value="Senha" />
+						<p:password id="senha"
+							value="#{agenteController.agente.senha}" />
+					</pm:field>
+					
+					
+						<pm:field>
+						<p:outputLabel for="foto" value="foto" />
+						<p:password id="foto"
+							value="#{agenteController.agente.foto}" />
+					</pm:field>
+					<pm:field>
+						<p:outputLabel for="senha" value="" />
+						<h:panelGrid columns="2" id="matchGrid" cellpadding="2">
+						
+							<h:commandButton
+								action="#{agenteController.adicionarAgente}"
+								value="Cadastrar" />
+
+
+							<h:commandButton action="index" value="Voltar" />
+						</h:panelGrid>
+
+					</pm:field>
+
+				</h:form>
+			</pm:content>
+		</pm:page>
+	</h:body>
+</f:view>
+</html>
+

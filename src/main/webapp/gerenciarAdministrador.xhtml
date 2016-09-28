@@ -1,33 +1,60 @@
-<?xml version='1.0' encoding='UTF-8' ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:f="http://java.sun.com/jsf/core">
-<h:head>
-	<title>Gerenciador de administradors</title>
-</h:head>
-<h:body>
-	<h1>Gerenciador de administradors</h1>
-	<h:form>
-Nome <h:inputText value="#{administradorController.administrador.nome}" />
-		<br />
-Login: <h:inputText value="#{administradorController.administrador.login}" />
-		<br />
-Senha: <h:inputText value="#{administradorController.administrador.senha}" />
-		<br />
-CPF: <h:inputText value="#{administradorController.administrador.cpf}" />
-		<br />
-		<br />
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:pm="http://primefaces.org/mobile"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
 
-		<br />
-		<h:commandButton action="#{administradorController.adicionarAdministrador}"
-			value="Inserir Novo administrador" />
-		<h:commandButton action="#{administradorController.alterarAdministrador}"
-			value="Alterar administrador" />
-		<br />
-		<h:commandLink action="index" value="Voltar" />
-	</h:form>
-</h:body>
-</html>
+<f:view renderKitId="PRIMEFACES_MOBILE">
+	<h:head>
+		<f:facet name="first">
+			<meta content='text/html; charset=UTF-8' http-equiv="Content-Type" />
+			<title>Gerenciador Administrador</title>
+			<h:outputScript library="primefaces/poll" name="poll.js" />
+		</f:facet>
+	</h:head>
+	<h:body>
+		<pm:page>
+			<pm:content>
 
+				<h1>Gerenciador de administradors</h1>
+				<h:form>
+
+					<pm:field>
+						<p:outputLabel for="nome" value="Nome" />
+						<p:inputText id="nome" value="#{administradorController.administrador.nome}"/>
+					</pm:field>
+
+					<pm:field>
+						<p:outputLabel for="login" value="Login" />
+						<p:inputText id="login"
+							value="#{administradorController.administrador.login}" />
+					</pm:field>
+					
+					<pm:field>
+						<p:outputLabel for="senha" value="Senha" />
+						<p:password id="senha"
+							value="#{administradorController.administrador.senha}" />
+					</pm:field>
+					
+					<pm:field>
+						<p:outputLabel for="CPF" value="CPF" />
+						<p:password id="CPF"
+							value="#{administradorController.administrador.cpf}" />
+					</pm:field>
+
+					<h:commandButton
+						action="#{administradorController.adicionarAdministrador}"
+						value="Inserir Novo administrador" />
+					<h:commandButton
+						action="#{administradorController.alterarAdministrador}"
+						value="Alterar administrador" />
+					<br />
+					<h:commandLink action="index" value="Voltar" />
+   </h:form>
+                </pm:content>
+            </pm:page>
+        </h:body>
+    </f:view>
+</html>               
 

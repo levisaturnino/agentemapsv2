@@ -1,0 +1,51 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:pm="http://primefaces.org/mobile"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+    <f:view renderKitId="PRIMEFACES_MOBILE">
+        <h:head>
+            <f:facet name="first">
+                <meta content='text/html; charset=UTF-8' http-equiv="Content-Type"/>
+                <title>Cliente</title>
+                <h:outputScript library="primefaces/poll" name="poll.js"/>
+            </f:facet>
+        </h:head>
+        <h:body>
+            <pm:page>
+                <pm:content>
+                
+                <pm:field>
+    <p:outputLabel for="basic" value="Basic:" />
+    <p:inputText id="basic" />
+</pm:field>
+                    <h:form>
+                        <pm:field>
+                            <p:outputLabel for="nome" value="Nome:"/>
+                            <p:outputLabel id="nome" value="#{filaController.cliente.nome}"/>
+                        </pm:field>
+                        <pm:field>
+                            <p:outputLabel for="telefone" value="Telefone:" />
+                            <p:outputLabel id="telefone" value="#{filaController.cliente.telefone}" />
+                        </pm:field>
+                        <pm:field>
+                            <p:outputLabel for="fila" value="Fila:"/>
+                            <p:outputLabel id="fila" value="#{filaController.posicao}"/>
+                        </pm:field>
+                        <pm:field>
+                            <p:outputLabel for="quantidade" value="Quantidade de fila:"/>
+                            <p:outputLabel id="quantidade" value="#{filaController.quantidadeFila}"/>
+                        </pm:field>
+                        <p:poll interval="1" listener="#{filaController.atualizaPosicao()}" update="fila"/>
+                        <p:commandButton value="Desistir" action="#{filaController.desista()}"/>
+                   
+                   
+                   
+                    </h:form>
+                </pm:content>
+            </pm:page>
+        </h:body>
+    </f:view>
+</html>                      
