@@ -2,6 +2,7 @@ package br.com.agentemaps.controller;
 
 import java.util.List;
 
+import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.model.DataModel;
@@ -15,6 +16,9 @@ import br.com.agentemaps.model.Agente;
 public class AgenteController {
 	private Agente agente;
 	private DataModel<Agente> listaAgentes;
+	
+	
+	
 
 	public DataModel<Agente> getListarAgentes() {
 		List<Agente> lista = new AgenteDAOImpl().listar();
@@ -26,8 +30,8 @@ public class AgenteController {
 		return agente;
 	}
 
-	public void setAgente(Agente Agente) {
-		this.agente = Agente;
+	public void setAgente(Agente agente) {
+		this.agente = agente;
 	}
 
 	public String prepararAdicionarAgente() {
