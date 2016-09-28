@@ -17,61 +17,56 @@
 		<pm:page>
 			<pm:content>
 
-				<h1>Cadastrar Agente</h1>
 				<h:form>
-
-					<pm:field>
-						<p:outputLabel for="nome" value="Nome" />
-						<p:inputText id="nome"
-							value="#{agenteController.agente.nome}" />
-					</pm:field>
-
-					<pm:field>
-						<p:outputLabel for="cpf" value="CPF" />
-						<p:inputText id="cpf"
-							value="#{agenteController.agente.cpf}" />
-					</pm:field>
-				
-					<pm:field>
-						<p:outputLabel for="selectOneRadio"
-							 value="Sexo"/>
-						<p:selectOneRadio id="selectOneRadio" value="#{agenteController.agente.sexo}">
-							<f:selectItem itemLabel="Masculino" itemValue="m" />
-							<f:selectItem itemLabel="Feminino" itemValue="f" />
-						</p:selectOneRadio>
-					</pm:field>
-					<pm:field>
-						<p:outputLabel for="login" value="Login" />
-						<p:inputText id="login"
-							value="#{agenteController.agente.login}" />
-					</pm:field>
-
-					<pm:field>
-						<p:outputLabel for="senha" value="Senha" />
-						<p:password id="senha"
-							value="#{agenteController.agente.senha}" />
-					</pm:field>
-					
-					
+					<p:panel id="panel" header="Cadastrar Agente"
+						style="margin-bottom:10px;">
+						<p:messages id="messages" />
 						<pm:field>
-						<p:outputLabel for="foto" value="foto" />
-						<p:password id="foto"
-							value="#{agenteController.agente.foto}" />
-					</pm:field>
-					<pm:field>
-						<p:outputLabel for="senha" value="" />
-						<h:panelGrid columns="2" id="matchGrid" cellpadding="2">
-						
-							<h:commandButton
-								action="#{agenteController.adicionarAgente}"
-								value="Cadastrar" />
+							<p:outputLabel for="nome" value="Nome" />
+							<p:inputText id="nome" value="#{agenteController.agente.nome}" />
+						</pm:field>
+
+						<pm:field>
+							<p:outputLabel for="cpf" value="CPF" />
+							<p:inputText id="cpf" value="#{agenteController.agente.cpf}" />
+						</pm:field>
+
+						<pm:field>
+							<p:outputLabel for="selectOneRadio" value="Sexo" />
+							<p:selectOneRadio id="selectOneRadio"
+								value="#{agenteController.agente.sexo}">
+								<f:selectItem itemLabel="Masculino" itemValue="m" />
+								<f:selectItem itemLabel="Feminino" itemValue="f" />
+							</p:selectOneRadio>
+						</pm:field>
+						<pm:field>
+							<p:outputLabel for="login" value="Login" />
+							<p:inputText id="login" value="#{agenteController.agente.login}" />
+						</pm:field>
+
+						<pm:field>
+							<p:outputLabel for="senha" value="Senha" />
+							<p:password id="senha" value="#{agenteController.agente.senha}" />
+						</pm:field>
 
 
-							<h:commandButton action="index" value="Voltar" />
-						</h:panelGrid>
+						<pm:field>
+							<p:outputLabel for="foto" value="foto" />
+							<p:password id="foto" value="#{agenteController.agente.foto}" />
+						</pm:field>
+						<pm:field>
+							<p:outputLabel for="senha" value="" />
+							<h:panelGrid columns="2" id="matchGrid" cellpadding="2">
 
-					</pm:field>
+								<h:commandButton   update="panel" action="#{agenteController.adicionarAgente}"
+									value="Cadastrar" />
 
+
+								<h:commandButton action="index" value="Voltar" />
+							</h:panelGrid>
+
+						</pm:field>
+					</p:panel>
 				</h:form>
 			</pm:content>
 		</pm:page>

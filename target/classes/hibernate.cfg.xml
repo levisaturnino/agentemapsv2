@@ -14,7 +14,7 @@
 		<property name="hibernate.connection.driver_class">
 			com.mysql.jdbc.Driver
 		</property>
-
+ 
 		<property name="dialect">org.hibernate.dialect.MySQLDialect</property>
 		<property name="c3po.min_size">5</property>
 		<property name="c3po.max_size">20</property>
