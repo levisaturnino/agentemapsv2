@@ -11,7 +11,8 @@
 		<h:outputStylesheet library="primefaces" name="grid/grid.css" />
 
 		<h:form id="form">
-			<p:panel id="panel" header="Cadastra Agente" style="margin-bottom:10px;">
+			<p:panel id="panel" header="Cadastra Agente"
+				style="margin-bottom:10px;">
 				<p:messages id="messages" />
 				<h:panelGrid columns="3" cellpadding="5">
 					<p:outputLabel for="text1" value="Nome:" />
@@ -23,13 +24,13 @@
 
 					<p:outputLabel for="text2" value="CPF:" maxlength="16" />
 					<p:inputText id="text2" value="#{agenteController.agente.cpf}"
-						label="Surname" >
-						
-				  <f:convertNumber integerOnly="true" type="number" />
-						</p:inputText>
-						
-			
-						
+						label="Surname">
+
+						<f:convertNumber integerOnly="true" type="number" />
+					</p:inputText>
+
+
+
 					<p:message for="text2" />
 
 
@@ -43,8 +44,9 @@
 						label="Senha" />
 					<p:message for="text4" />
 
-					<p:outputLabel for="text4" value="Foto:" />
-					<p:inputText id="text5" value="#{agenteController.agente.foto}"
+					<!-- 					<p:outputLabel for="text4" value="Foto:" />
+ -->
+					<h:inputHidden id="text5" value="#{agenteController.agente.foto}"
 						label="Foto" />
 					<p:message for="text5" />
 				</h:panelGrid>
@@ -74,11 +76,11 @@
 
 
 
-				
+
 				</f:facet>
 
-</p:toolbar>
-	
+			</p:toolbar>
+
 		</h:form>
 
 	</ui:define>
