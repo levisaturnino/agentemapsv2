@@ -6,13 +6,12 @@
 	template="/WEB-INF/templates/Layout.xhtml">
 
 	<ui:define name="content">
-		<h1 class="aw-page-title">Cadastra Agente</h1>
+
 
 		<h:outputStylesheet library="primefaces" name="grid/grid.css" />
 
-
 		<h:form id="form">
-			<p:panel id="panel" header="" style="margin-bottom:10px;">
+			<p:panel id="panel" header="Cadastra Agente" style="margin-bottom:10px;">
 				<p:messages id="messages" />
 				<h:panelGrid columns="3" cellpadding="5">
 					<p:outputLabel for="text1" value="Nome:" />
@@ -22,9 +21,15 @@
 					</p:inputText>
 					<p:message for="text1" />
 
-					<p:outputLabel for="text2" value="CPF:" />
+					<p:outputLabel for="text2" value="CPF:" maxlength="16" />
 					<p:inputText id="text2" value="#{agenteController.agente.cpf}"
-						label="Surname" />
+						label="Surname" >
+						
+				  <f:convertNumber integerOnly="true" type="number" />
+						</p:inputText>
+						
+			
+						
 					<p:message for="text2" />
 
 
@@ -48,18 +53,32 @@
 
 			<p:toolbar>
 				<f:facet name="left">
-					<h:panelGrid columns="2" id="matchGrid" cellpadding="2">
 
+
+					<h:panelGroup rendered="#{not empty agenteController.agente.id}">
+						<h:commandButton update="panel"
+							action="#{agenteController.alterarAgente()}" value="Alterar" />
+
+
+						<h:commandButton action="index" value="Voltar" />
+					</h:panelGroup>
+					<h:panelGroup rendered="#{empty agenteController.agente.id}">
 						<h:commandButton update="panel"
 							action="#{agenteController.adicionarAgente()}" value="Cadastrar" />
 
 
 						<h:commandButton action="index" value="Voltar" />
-					</h:panelGrid>
+					</h:panelGroup>
+
+
+
+
+
+				
 				</f:facet>
 
-
-			</p:toolbar>
+</p:toolbar>
+	
 		</h:form>
 
 	</ui:define>

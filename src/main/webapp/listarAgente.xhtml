@@ -9,19 +9,19 @@
 		<h1 class="aw-page-title">Lista Agente</h1>
 
 		<h:outputStylesheet library="primefaces" name="grid/grid.css" />
-	<h:link outcome="cadastrarAgente.xhtml"> <i class="fa  fa-fw  fa-user"></i> Cadastrar</h:link>
-	
+
 	
 	<h:form>
-    <p:growl id="growl" life="2000" />
+    <p:messages id="messages" showDetail="true" autoUpdate="true" closable="true" />
+
+</h:form>
+	<h:form>
+
+     <p:commandButton id="ajax"  value="Cadastrar" action ="#{agenteController.prepararAdicionarAgente()}">
+     
+    </p:commandButton>
  
-    <p:commandLink id="ajax" update="growl" action ="#{agenteController.prepararAdicionarAgente()}">
-        <h:outputText value="Ajax Submit" />
-    </p:commandLink>
- 
-    <p:commandLink id="nonAjax" actionListener="#{buttonView.buttonAction}" ajax="false">
-        <h:outputText value="Non-Ajax Submit" />
-    </p:commandLink>
+  
 </h:form>
 	
 	
