@@ -19,6 +19,13 @@ public class AgenteController {
 	private Agente agente;
 	private DataModel<Agente> listaAgentes;	
 	
+	
+	 @PostConstruct
+	 public void init(){
+			agente = new Agente(); 
+	 }
+	
+	 
 	public AgenteController() { 
 		agente = new Agente(); 
 	}
@@ -39,25 +46,25 @@ public class AgenteController {
 
 	public String prepararAdicionarAgente() {
 		agente = new Agente();
-		return "04cadastrarAgente";
+		return "cadastrarAgente";
 	}
 
 	public String prepararAlterarAgente() {
 		agente = (Agente) (listaAgentes.getRowData());
-		return "04cadastrarAgente";
+		return "cadastrarAgente";
 	}
 
 	public String excluirAgente() {
 		Agente AgenteTemp = (Agente) (listaAgentes.getRowData());
 		AgenteDAO dao = new AgenteDAOImpl();
 		dao.excluir(AgenteTemp);
-		return "listaagente";
+		return "listarAgente";
 	}
 
 	public String adicionarAgente() {
 		AgenteDAOImpl dao = new AgenteDAOImpl();
 		dao.salvar(agente);
-		return "listaagente";
+		return "listarAgente";
 	}
 
 	public String alterarAgente() {

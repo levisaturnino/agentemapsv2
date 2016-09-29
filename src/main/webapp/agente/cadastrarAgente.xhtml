@@ -1,0 +1,109 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	template="/WEB-INF/templates/Layout.xhtml">
+	
+<ui:define name="content">
+	<h1 class="aw-page-title">Cadastra Agente</h1>
+	
+	<h:outputStylesheet library="primefaces" name="grid/grid.css"/>
+	
+	<h:form>
+					<p:panel id="panel" header="Cadastrar Agente"
+						style="margin-bottom:10px;">
+						<p:messages id="messages" />
+						<pm:field>
+							<p:outputLabel for="nome" value="Nome" />
+							<p:inputText id="nome" value="#{agenteController.agente.nome}" />
+						</pm:field>
+
+						<pm:field>
+							<p:outputLabel for="cpf" value="CPF" />
+							<p:inputText id="cpf" value="#{agenteController.agente.cpf}" />
+						</pm:field>
+
+						<pm:field>
+							<p:outputLabel for="selectOneRadio" value="Sexo" />
+							<p:selectOneRadio id="selectOneRadio"
+								value="#{agenteController.agente.sexo}">
+								<f:selectItem itemLabel="Masculino" itemValue="m" />
+								<f:selectItem itemLabel="Feminino" itemValue="f" />
+							</p:selectOneRadio>
+						</pm:field>
+						<pm:field>
+							<p:outputLabel for="login" value="Login" />
+							<p:inputText id="login" value="#{agenteController.agente.login}" />
+						</pm:field>
+
+						<pm:field>
+							<p:outputLabel for="senha" value="Senha" />
+							<p:password id="senha" value="#{agenteController.agente.senha}" />
+						</pm:field>
+
+
+						<pm:field>
+							<p:outputLabel for="foto" value="foto" />
+							<p:password id="foto" value="#{agenteController.agente.foto}" />
+						</pm:field>
+						<pm:field>
+							<p:outputLabel for="senha" value="" />
+							<h:panelGrid columns="2" id="matchGrid" cellpadding="2">
+
+								<h:commandButton   update="panel" action="#{agenteController.adicionarAgente}"
+									value="Cadastrar" />
+
+
+								<h:commandButton action="index" value="Voltar" />
+							</h:panelGrid>
+
+						</pm:field>
+					</p:panel>
+				</h:form>
+				
+				
+				
+				<h:form id="form">
+    <p:panel id="panel" header="Form" style="margin-bottom:10px;">
+        <p:messages id="messages" />
+        <h:panelGrid columns="3" cellpadding="5">
+            <p:outputLabel for="text1" value="Text 1:" />
+            <p:inputText id="text1" value="#{resetInputView.text1}" required="true" label="Firstname">
+                <f:validateLength minimum="2" />
+            </p:inputText>
+            <p:message for="text1" />
+ 
+            <p:outputLabel for="text2" value="Text 2:" />
+            <p:inputText id="text2" value="#{resetInputView.text2}" required="true" label="Surname"/>
+            <p:message for="text2" />
+        </h:panelGrid>
+    </p:panel>
+ 
+    <p:toolbar>
+        <f:facet name="left">
+            <p:commandButton value="Submit" update="panel" actionListener="#{resetInputView.save}" style="margin-right:20px;" />
+        </f:facet>
+ 
+        <f:facet name="right">
+            <p:commandButton value="Reset Fail" update="panel" process="@this" actionListener="#{resetInputView.resetFail}" style="margin-right:20px;" />
+ 
+            <p:commandButton value="Reset Tag" update="panel" process="@this" style="margin-right:20px;" >
+                <p:resetInput target="panel" />
+            </p:commandButton>
+ 
+            <p:commandButton value="Reset Code" update="panel" process="@this" actionListener="#{resetInputView.reset}"  style="margin-right:20px;" />
+ 
+            <p:commandButton value="Reset Non-Ajax" actionListener="#{resetInputView.reset}" immediate="true" ajax="false" style="margin-right:20px;">
+                <p:resetInput target="panel" />
+            </p:commandButton>
+ 
+            <h:commandButton value="Reset p:ajax" style="margin-right:20px;" >
+                <p:ajax update="panel" resetValues="true" />
+            </h:commandButton>
+        </f:facet>
+    </p:toolbar>
+</h:form>
+
+</ui:define>
+</ui:composition>
