@@ -7,88 +7,93 @@
 	template="/WEB-INF/templates/Layout.xhtml">
 
 	<ui:define name="content">
-
-
 		<h:outputStylesheet library="primefaces" name="grid/grid.css" />
-
-
 		<h1>Cadastrar Familia</h1>
-
 		<h:form id="form">
-	
-		<p:panel id="panel" header="Cadastra Família"
+			<p:panel id="panel" header="Cadastra Família"
 				style="margin-bottom:10px;">
 				<p:messages id="messages" />
-
-				<p:outputLabel for="nome" value="Chefe da Família" />
-				<p:inputText id="nome" value="#{familiaController.familia.chefeFamilia}" />
-
-				<p:outputLabel for="cpf" value="Logradouro" />
-				<p:inputText id="cpf" value="#{familiaController.familia.logradouro}" />
-
-				<p:outputLabel for="logradouro" value="numero" />
-				<p:inputText id="logradouro" value="#{familiaController.familia.numero}" />
-
-				<p:outputLabel for="numero" value="Numero" />
-				<p:inputText id="numero" value="#{familiaController.familia.numero}" />
-
-				<p:outputLabel for="bairro" value="Bairro" />
-				<p:inputText id="bairro" value="#{familiaController.familia.bairro}" />
-
-				<p:outputLabel for="cep" value="CEP" />
-				<p:inputText id="cep" value="#{familiaController.familia.cep}" />
-
-				<p:outputLabel for="codigo" value="Código do Município" />
-				<p:inputText id="codigo" value="#{familiaController.familia.codigoMunicipio}" />
-
-	<p:outputLabel for="cep" value="segmento" />
-				<p:inputText id="segmento" value="#{familiaController.familia.segmento}" />
-
-	<p:outputLabel for="cep" value="Area" />
-				<p:inputText id="Area" value="#{familiaController.familia.area}" />
-
-	<p:outputLabel for="cep" value="Microarea" />
-				<p:inputText id="Microarea" value="#{familiaController.familia.microarea}" />
-				<p:outputLabel for="codigo" value="" />
-	<p:outputLabel for="cep" value="cpfChefe" />
-				<p:inputText id="cpfChefe" value="#{familiaController.familia.cpfChefe}" />
-				<p:outputLabel for="codigo" value="" />
-
 				<h:panelGrid columns="2" id="matchGrid" cellpadding="2">
-
-					<h:commandButton action="#{familiaController.adicionarFamilia}"
-						value="Cadastrar" />
-
-
-					<h:commandButton action="index" value="Voltar" />
+					
+					<p:outputLabel for="nome" value="Chefe da Família" />
+					<p:inputText id="nome"
+						value="#{familiaController.familia.chefeFamilia}" />
+					
+					<p:outputLabel for="logradouro" value="Logradouro" />
+					<p:inputText id="logradouro"
+						value="#{familiaController.familia.logradouro}" />
+					
+					<p:outputLabel for="numero" value="numero" />
+					<p:inputText id="numero"
+						value="#{familiaController.familia.numero}" />
+					
+					<p:outputLabel for="uf" value="uf" />
+					<p:inputText id="uf"
+						value="#{familiaController.familia.uf}" > 	
+						<f:validateLength maximum="2" />
+							
+					</p:inputText>
+					
+					<p:outputLabel for="bairro" value="Bairro" />
+					<p:inputText id="bairro"
+						value="#{familiaController.familia.bairro}" />
+					
+					<p:outputLabel for="cep" value="CEP" />
+					<p:inputText id="cep" value="#{familiaController.familia.cep}" > 	
+						<f:validateLength maximum="9" />
+								<f:convertNumber integerOnly="true" type="number" />
+					</p:inputText>
+					
+					<p:outputLabel for="codigo" value="Código do Município" />
+					<p:inputText id="codigo"
+						value="#{familiaController.familia.codigoMunicipio}" > 	
+						<f:validateLength maximum="7" />
+							
+					</p:inputText>
+					
+					<p:outputLabel for="segmento" value="Segmento" />
+					<p:inputText id="segmento"
+						value="#{familiaController.familia.segmento}" > 	
+						<f:validateLength maximum="2" />
+								<f:convertNumber integerOnly="true" type="number" />
+					</p:inputText>
+					
+					<p:outputLabel for="area" value="Area" />
+					<p:inputText id="area" value="#{familiaController.familia.area}" > 	
+						<f:validateLength maximum="3" />
+								<f:convertNumber integerOnly="true" type="number" />
+					</p:inputText>
+					
+					<p:outputLabel for="microarea" value="Microarea" /> 	
+						
+					<p:inputText id="microarea"
+						value="#{familiaController.familia.microarea}"> 	
+						<f:validateLength minimum="2" />
+					</p:inputText>
+					
+					<p:outputLabel for="cpfChefe" value="CPF Chefe" />
+					<p:inputText id="cpfChefe"
+						value="#{familiaController.familia.cpfChefe}" />
+						
+						
+							<p:outputLabel for="data" value="Data" />
+					<p:inputText id="data"
+						value="#{familiaController.familia.data}" />
+						
 				</h:panelGrid>
-</p:panel>
-				<p:toolbar>
-					<f:facet name="left">
-
-
-						<h:panelGroup rendered="#{not empty agenteController.agente.id}">
-							<h:commandButton update="panel"
-								action="#{agenteController.alterarAgente()}" value="Alterar" />
-
-
-							<h:commandButton action="index" value="Voltar" />
-						</h:panelGroup>
-						<h:panelGroup rendered="#{empty agenteController.agente.id}">
-							<h:commandButton update="panel"
-								action="#{agenteController.adicionarAgente()}" value="Cadastrar" />
-
-
-							<h:commandButton action="index" value="Voltar" />
-						</h:panelGroup>
-
-					</f:facet>
-
-				</p:toolbar>
-		
-		
+				<h:panelGrid columns="2" id="matchGrid2" cellpadding="2">
+					<h:panelGroup rendered="#{not empty agenteController.agente.id}">
+						<h:commandButton update="panel"
+							action="#{familiaController.alterarFamilia()}" value="Alterar" />
+						<h:commandButton action="index" value="Voltar" />
+					</h:panelGroup>
+					<h:panelGroup rendered="#{empty agenteController.agente.id}">
+						<h:commandButton update="panel"
+							action="#{familiaController.adicionarFamilia()}" value="Cadastrar" />
+						<h:commandButton action="index" value="Voltar" />
+					</h:panelGroup>
+				</h:panelGrid>
+			</p:panel>			
 		</h:form>
-
-
 	</ui:define>
 </ui:composition>

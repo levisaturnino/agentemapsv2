@@ -3,8 +3,10 @@ package br.com.agentemaps.controller;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import javax.faces.context.FacesContext;
 import javax.faces.model.DataModel;
 import javax.faces.model.ListDataModel;
 
@@ -51,18 +53,23 @@ public class FamiliaController {
 		Familia FamiliaTemp = (Familia) (listaFamilias.getRowData());
 		FamiliaDAO dao = new FamiliaDAOImpl();
 		dao.excluir(FamiliaTemp);
+        FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error!", "A Familia "+FamiliaTemp.getChefeFamilia()+" foi excluído"));
+
 		return "";
 	}
 
 	public String adicionarFamilia() {
 		FamiliaDAOImpl dao = new FamiliaDAOImpl();
 		dao.salvar(familia);
-		return "";
+        FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Info", "Familia Cadastrada com Sucesso!."));
+
+		return "familiaListar";
 	}
 
 	public String alterarFamilia() {
 		FamiliaDAO dao = new FamiliaDAOImpl();
 		dao.atualizar(familia);
+		FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Info",  "Familia alterada com Sucesso!."));
 		return "";
 	}
 }
