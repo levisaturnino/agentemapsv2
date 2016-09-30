@@ -82,12 +82,12 @@
 						
 				</h:panelGrid>
 				<h:panelGrid columns="2" id="matchGrid2" cellpadding="2">
-					<h:panelGroup rendered="#{not empty agenteController.agente.id}">
+					<h:panelGroup rendered="#{not empty familiaController.familia.id}">
 						<h:commandButton update="panel"
 							action="#{familiaController.alterarFamilia()}" value="Alterar" />
 						<h:commandButton action="index" value="Voltar" />
 					</h:panelGroup>
-					<h:panelGroup rendered="#{empty agenteController.agente.id}">
+					<h:panelGroup rendered="#{empty familiaController.familia.id}">
 						<h:commandButton update="panel"
 							action="#{familiaController.adicionarFamilia()}" value="Cadastrar" />
 						<h:commandButton action="index" value="Voltar" />
