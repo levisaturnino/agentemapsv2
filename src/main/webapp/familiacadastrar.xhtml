@@ -13,83 +13,87 @@
 
 			<p:wizard flowListener="#{userWizard.onFlowProcess}">
 				<p:tab id="personal" title="Família">
-					<p:panel header="Cadastrar Família">
-						<p:messages />
-						<h:panelGrid columns="2" columnClasses="label, value">
-							<h:outputText value="Nome do Representante: *" />
-							<p:inputText value="#{familiaController.familia.chefeFamilia}"
-								required="true" label="Chefe da Familia" />
-							<h:outputText value="CPF: *" />
-							<p:inputText id="cpfChefe"
-								value="#{familiaController.familia.cpfChefe}" required="true"
-								label="CPF do Chefe" />
+					<div class="ui-fluid">
+						<p:panel header="Cadastrar Família">
+							<p:messages />
 
-							<h:outputText value="Logradouro: " />
-							<p:inputText value="#{familiaController.familia.logradouro}"
-								label="Logradouro" />
 
-							<h:outputText value="Número: " />
-							<p:inputText value="#{familiaController.familia.numero}" />
+							<h:panelGrid columns="2" columnClasses="label, value">
+								<h:outputText value="Nome do Representante: *" />
+								<p:inputText value="#{familiaController.familia.chefeFamilia}"
+									required="true" label="Chefe da Familia" />
+								<h:outputText value="CPF: *" />
+								<p:inputText id="cpfChefe"
+									value="#{familiaController.familia.cpfChefe}" required="true"
+									label="CPF do Chefe" />
 
-							<p:outputLabel for="uf" value="UF: " />
-							<p:selectOneMenu id="uf" value="#{familiaController.familia.uf}"
-								style="width:150px">
-								<p:ajax listener="#{dropdownView.onCountryChange}" update="uf" />
-								<f:selectItem itemLabel="Pernambuco" itemValue="pe"
-									noSelectionOption="true" />
-								<f:selectItem itemLabel="Acre" itemValue="ac"
-									noSelectionOption="true" />
-								<f:selectItem itemLabel="Amazonas" itemValue="am"
-									noSelectionOption="true" />
-								<f:selectItem itemLabel="Amapá" itemValue="ap"
-									noSelectionOption="true" />
-								<f:selectItem itemLabel="Bahia" itemValue="ba"
-									noSelectionOption="true" />
-								<f:selectItem itemLabel="Brasília" itemValue=""
-									noSelectionOption="true" />
-								<f:selectItem itemLabel="Ceará" itemValue="ce"
-									noSelectionOption="true" />
-							</p:selectOneMenu>
+								<h:outputText value="Logradouro: " />
+								<p:inputText value="#{familiaController.familia.logradouro}"
+									label="Logradouro" />
 
-							<h:outputText value="Bairro: " />
-							<p:inputText value="#{familiaController.familia.bairro}" />
-							<h:outputText value="CEP: " />
-							<p:inputText value="#{familiaController.familia.cep}">
-								<f:validateLength maximum="9" />
-								<f:convertNumber integerOnly="true" type="number" />
-							</p:inputText>
+								<h:outputText value="Número: " />
+								<p:inputText value="#{familiaController.familia.numero}" />
 
-							<h:outputText value="Código do Município: " />
-							<p:inputText id="codigo"
-								value="#{familiaController.familia.codigoMunicipio}">
-								<f:validateLength maximum="7" />
-							</p:inputText>
+								<p:outputLabel for="uf" value="UF: " />
+								<p:selectOneMenu id="uf" value="#{familiaController.familia.uf}"
+									style="width:150px">
+									<p:ajax listener="#{dropdownView.onCountryChange}" update="uf" />
+									<f:selectItem itemLabel="Pernambuco" itemValue="pe"
+										noSelectionOption="true" />
+									<f:selectItem itemLabel="Acre" itemValue="ac"
+										noSelectionOption="true" />
+									<f:selectItem itemLabel="Amazonas" itemValue="am"
+										noSelectionOption="true" />
+									<f:selectItem itemLabel="Amapá" itemValue="ap"
+										noSelectionOption="true" />
+									<f:selectItem itemLabel="Bahia" itemValue="ba"
+										noSelectionOption="true" />
+									<f:selectItem itemLabel="Brasília" itemValue=""
+										noSelectionOption="true" />
+									<f:selectItem itemLabel="Ceará" itemValue="ce"
+										noSelectionOption="true" />
+								</p:selectOneMenu>
 
-							<h:outputText value="Segmento: " />
-							<p:inputText id="segmento"
-								value="#{familiaController.familia.segmento}">
-								<f:validateLength maximum="2" />
-								<f:convertNumber integerOnly="true" type="number" />
-							</p:inputText>
-							<h:outputText value="Área: " />
-							<p:inputText id="area" value="#{familiaController.familia.area}">
-								<f:validateLength maximum="3" />
-								<f:convertNumber integerOnly="true" type="number" />
-							</p:inputText>
+								<h:outputText value="Bairro: " />
+								<p:inputText value="#{familiaController.familia.bairro}" />
+								<h:outputText value="CEP: " />
+								<p:inputText value="#{familiaController.familia.cep}">
+									<f:validateLength maximum="9" />
+									<f:convertNumber integerOnly="true" type="number" />
+								</p:inputText>
 
-							<h:outputText value="Microarea: " />
-							<p:inputText id="microarea"
-								value="#{familiaController.familia.microarea}">
-								<f:validateLength minimum="2" />
-							</p:inputText>
-							<p:outputLabel for="Data" value="Data" />
-							<p:calendar id="Data" value="#{familiaController.familia.data}"
-								mode="Data" />
+								<h:outputText value="Código do Município: " />
+								<p:inputText id="codigo"
+									value="#{familiaController.familia.codigoMunicipio}">
+									<f:validateLength maximum="7" />
+								</p:inputText>
 
-							<h:outputText value="Ir para último? " />
-							<h:selectBooleanCheckbox value="#{userWizard.skip}" />
-						</h:panelGrid>
-					</p:panel>
+								<h:outputText value="Segmento: " />
+								<p:inputText id="segmento"
+									value="#{familiaController.familia.segmento}">
+									<f:validateLength maximum="2" />
+									<f:convertNumber integerOnly="true" type="number" />
+								</p:inputText>
+								<h:outputText value="Área: " />
+								<p:inputText id="area" value="#{familiaController.familia.area}">
+									<f:validateLength maximum="3" />
+									<f:convertNumber integerOnly="true" type="number" />
+								</p:inputText>
+
+								<h:outputText value="Microarea: " />
+								<p:inputText id="microarea"
+									value="#{familiaController.familia.microarea}">
+									<f:validateLength minimum="2" />
+								</p:inputText>
+								<p:outputLabel for="popup" value="Data:" />
+								<p:calendar id="popup" value="#{familiaController.familia.data}" />
+
+								<h:outputText value="Ir para último? " />
+								<h:selectBooleanCheckbox value="#{userWizard.skip}" />
+							</h:panelGrid>
+
+						</p:panel>
+					</div>
 				</p:tab>
 
 				<p:tab id="membro" title="Membro da Familia">
@@ -143,27 +147,7 @@
 									itemValue="Superior - Incompleto" noSelectionOption="true" />
 								<f:selectItem itemLabel="Superior - Completo"
 									itemValue="Superior - Completo" noSelectionOption="true" />
-								<f:selectItem
-									itemLabel="Pós-graduação (Lato senso) - Incompleto"
-									itemValue="Pós-graduação (Lato senso) - Incompleto"
-									noSelectionOption="true" />
-								<f:selectItem
-									itemLabel="Pós-graduação (Lato senso) - Incompleto"
-									itemValue="Pós-graduação (Lato senso) - Incompleto"
-									noSelectionOption="true" />
 
-								<f:selectItem
-									itemLabel="Pós-graduação (Stricto sensu, nível mestrado) - Incompleto"
-									itemValue="Pós-graduação (Stricto sensu, nível mestrado) - Incompleto"
-									noSelectionOption="true" />
-								<f:selectItem
-									itemLabel="Pós-graduação (Stricto sensu, nível doutor) - Incompleto"
-									itemValue="Pós-graduação (Stricto sensu, nível doutor) - Incompleto"
-									noSelectionOption="true" />
-								<f:selectItem
-									itemLabel="Pós-graduação (Stricto sensu, nível doutor) - Completo"
-									itemValue="Pós-graduação (Stricto sensu, nível doutor) - Completo"
-									noSelectionOption="true" />
 								<f:selectItem itemLabel="Sem escolaridade"
 									itemValue="Sem escolaridade" noSelectionOption="true" />
 							</p:selectOneMenu>
@@ -174,15 +158,30 @@
 							<h:outputText value="Condições de Saúde: " />
 							<p:inputText value="#{membroController.membro.gestante}" />
 							<h:outputText value=" " />
-							<p:selectManyCheckbox id="basic">
-								<f:selectItem itemLabel="Diabetico" itemValue="Diabetico" />
+							<p:selectManyCheckbox id="grid"  layout="grid" columns="1">
+								<f:selectItem itemLabel="Diabetico" itemValue="Diabetico" /><br/>
 								<f:selectItem itemLabel="Gestante" itemValue="Gestante" />
 								<f:selectItem itemLabel="Hipertenso" itemValue="Hipertenso" />
 							</p:selectManyCheckbox>
-<h:outputText value="Cadastrar membro" />
-	<p:commandButton value="Cadastrar"
-							actionListener="#{userWizard.save}" update="growl"
-							process="@this" />
+
+							
+
+
+
+
+
+
+
+
+
+
+
+
+
+							<h:outputText value="Cadastrar membro" />
+							<p:commandButton value="Cadastrar"
+								actionListener="#{userWizard.save}" update="growl"
+								process="@this" />
 
 
 							<h:outputText value="Ir para último?" />
@@ -194,148 +193,170 @@
 				<p:tab id="contact" title="Situações">
 					<p:panel header="Tipo de Situações">
 						<p:messages />
-						<h:panelGrid columns="2" columnClasses="label, value">
 
 
-							<p:panel header="TIPO DE CASA">
-								<p:messages />
-								<h:panelGrid columns="2" columnClasses="label, value">
-									<h:panelGrid columns="2" style="margin-bottom:10px"
-										cellpadding="5">
-										<h:outputText value="Tijolo/ Adobe: " />
-										<p:selectBooleanCheckbox
-											value="#{situacaoController.situacao.tijoloAdobe}" />
-
-										<h:outputText value="Taipa revestoda: " />
-										<p:selectBooleanCheckbox
-											value="#{situacaoController.situacao.tijoloAdobe}" />
+						<p:accordionPanel style="margin-top:20px">
+							<p:tab title="TIPO DE CASA">
+								<p:panelGrid columns="2"
+									columnClasses="ui-grid-col-4,ui-grid-col-8" layout="grid"
+									styleClass="ui-panelgrid-blank">
 
 
-										<h:outputText value="Taipa não revestida: " />
-										<p:selectBooleanCheckbox
-											value="#{situacaoController.situacao.tijoloAdobe}" />
+									<h:panelGrid columns="2" columnClasses="label, value">
+										<h:panelGrid columns="2" style="margin-bottom:10px"
+											cellpadding="5">
 
-										<h:outputText value="Madeira: " />
-										<p:selectBooleanCheckbox
-											value="#{situacaoController.situacao.tijoloAdobe}" />
+											<h:outputText value="Tijolo/ Adobe: " />
+											<p:selectBooleanCheckbox
+												value="#{situacaoController.situacao.tijoloAdobe}" />
 
-										<h:outputText value="Material aproveitado: " />
-										<p:selectBooleanCheckbox
-											value="#{situacaoController.situacao.tijoloAdobe}" />
-
-										<h:outputText value="Outro - Especificar: " />
-										<p:inputText
-											value="#{situacaoController.situacao.tijoloAdobe}" />
+											<h:outputText value="Taipa revestoda: " />
+											<p:selectBooleanCheckbox
+												value="#{situacaoController.situacao.tijoloAdobe}" />
 
 
+											<h:outputText value="Taipa não revestida: " />
+											<p:selectBooleanCheckbox
+												value="#{situacaoController.situacao.tijoloAdobe}" />
 
+											<h:outputText value="Madeira: " />
+											<p:selectBooleanCheckbox
+												value="#{situacaoController.situacao.tijoloAdobe}" />
 
+											<h:outputText value="Material aproveitado: " />
+											<p:selectBooleanCheckbox
+												value="#{situacaoController.situacao.tijoloAdobe}" />
 
-
+											<h:outputText value="Outro - Especificar: " />
+											<p:inputText
+												value="#{situacaoController.situacao.tijoloAdobe}" />
+										</h:panelGrid>
 									</h:panelGrid>
-								</h:panelGrid>
-							</p:panel>
 
-							<p:panel header="DESTINO DO LIXO">
-								<p:messages />
-								<h:panelGrid columns="2" columnClasses="label, value">
-									<h:panelGrid columns="2" style="margin-bottom:10px"
-										cellpadding="5">
-										<h:outputText value="Coletado: " />
-										<p:selectBooleanCheckbox
-											value="#{situacaoController.situacao.tijoloAdobe}" />
 
-										<h:outputText value="Queimado / Enterrado: " />
-										<p:selectBooleanCheckbox value ="#{situacaoController.situacao.tijoloAdobe}" />
 
-										<h:outputText value="Céu aberto: " />
-										<p:selectBooleanCheckbox value ="#{situacaoController.situacao.tijoloAdobe}" />
+								</p:panelGrid>
+							</p:tab>
+							<p:tab title="DESTINO DO LIXO">
+								<p:panelGrid columns="2"
+									columnClasses="ui-grid-col-2,ui-grid-col-10" layout="grid"
+									styleClass="ui-panelgrid-blank">
+									<h:panelGrid columns="2" columnClasses="label, value">
+										<h:panelGrid columns="2" style="margin-bottom:10px"
+											cellpadding="5">
+											<h:outputText value="Coletado: " />
+											<p:selectBooleanCheckbox
+												value="#{situacaoController.situacao.tijoloAdobe}" />
+
+											<h:outputText value="Queimado / Enterrado: " />
+											<p:selectBooleanCheckbox
+												value="#{situacaoController.situacao.tijoloAdobe}" />
+
+											<h:outputText value="Céu aberto: " />
+											<p:selectBooleanCheckbox
+												value="#{situacaoController.situacao.tijoloAdobe}" />
+										</h:panelGrid>
 									</h:panelGrid>
-								</h:panelGrid>
-							</p:panel>
-						
-					
+								</p:panelGrid>
+							</p:tab>
+							<p:tab title="TRATAMENTO DA ÁGUA">
+								<p:panelGrid columns="2"
+									columnClasses="ui-grid-col-2,ui-grid-col-10" layout="grid"
+									styleClass="ui-panelgrid-blank">
+									<h:panelGrid columns="2" columnClasses="label, value">
+										<h:panelGrid columns="2" style="margin-bottom:10px"
+											cellpadding="5">
+											<h:outputText value="Filtração: " />
+											<p:selectBooleanCheckbox
+												value="#{situacaoController.situacao.tijoloAdobe}" />
+
+											<h:outputText value="Fervura: " />
+											<p:selectBooleanCheckbox
+												value="#{situacaoController.situacao.tijoloAdobe}" />
+
+
+											<h:outputText value="Cloração: " />
+											<p:selectBooleanCheckbox
+												value="#{situacaoController.situacao.tijoloAdobe}" />
+
+											<h:outputText value="Sem tratamento: " />
+											<p:selectBooleanCheckbox
+												value="#{situacaoController.situacao.tijoloAdobe}" />
+										</h:panelGrid>
+									</h:panelGrid>
+								</p:panelGrid>
+							</p:tab>
 
 
 
 
 
-<p:panel header="TRATAMENTO DA ÁGUA">
-						<p:messages />
-						<h:panelGrid columns="2" columnClasses="label, value">
-							<h:panelGrid columns="2" style="margin-bottom:10px"
-								cellpadding="5">
-								<h:outputText value="Filtração: " />
-								<p:selectBooleanCheckbox
-									value="#{situacaoController.situacao.tijoloAdobe}" />
+							<p:tab title="ABASTECIMENTO DE ÁGUA">
+								<p:panelGrid columns="2"
+									columnClasses="ui-grid-col-2,ui-grid-col-10" layout="grid"
+									styleClass="ui-panelgrid-blank">
+									<h:panelGrid columns="2" columnClasses="label, value">
+										<h:panelGrid columns="2" style="margin-bottom:10px"
+											cellpadding="5">
+											<h:outputText value="Rede geral: " />
+											<p:selectBooleanCheckbox
+												value="#{situacaoController.situacao.tijoloAdobe}" />
 
-								<h:outputText value="Fervura: " />
-								<p:selectBooleanCheckbox
-									value="#{situacaoController.situacao.tijoloAdobe}" />
+											<h:outputText value="Poço ou nascente: " />
+											<p:selectBooleanCheckbox
+												value="#{situacaoController.situacao.tijoloAdobe}" />
 
 
-								<h:outputText value="Cloração: " />
-								<p:selectBooleanCheckbox
-									value="#{situacaoController.situacao.tijoloAdobe}" />
+											<h:outputText value="Outros: " />
+											<p:inputText
+												value="#{situacaoController.situacao.tijoloAdobe}" />
 
-								<h:outputText value="Sem tratamento: " />
-								<p:selectBooleanCheckbox
-									value="#{situacaoController.situacao.tijoloAdobe}" />
-							</h:panelGrid>
-						</h:panelGrid>
+
+										</h:panelGrid>
+									</h:panelGrid>
+								</p:panelGrid>
+							</p:tab>
+
+
+
+
+
+
+							<p:tab title="DESTINO DE FEZES E URINA">
+								<p:panelGrid columns="2"
+									columnClasses="ui-grid-col-2,ui-grid-col-10" layout="grid"
+									styleClass="ui-panelgrid-blank">
+									<h:panelGrid columns="2" columnClasses="label, value">
+										<h:panelGrid columns="2" style="margin-bottom:10px"
+											cellpadding="5">
+											<h:outputText value="Sistema de esgoto(rede geral): " />
+											<p:selectBooleanCheckbox
+												value="#{situacaoController.situacao.tijoloAdobe}" />
+
+											<h:outputText value="Fossa: " />
+											<p:selectBooleanCheckbox
+												value="#{situacaoController.situacao.tijoloAdobe}" />
+
+
+											<h:outputText value="Céu aberto: " />
+											<p:selectBooleanCheckbox
+												value="#{situacaoController.situacao.tijoloAdobe}" />
+
+
+										</h:panelGrid>
+									</h:panelGrid>
+								</p:panelGrid>
+							</p:tab>
+
+
+
+						</p:accordionPanel>
+
+
+
+
 					</p:panel>
-					
-					
 
-
-					<p:panel header="ABASTECIMENTO DE ÁGUA">
-						<p:messages />
-						<h:panelGrid columns="2" columnClasses="label, value">
-							<h:panelGrid columns="2" style="margin-bottom:10px"
-								cellpadding="5">
-								<h:outputText value="Rede geral: " />
-								<p:selectBooleanCheckbox value ="#{situacaoController.situacao.tijoloAdobe}" />
-
-								<h:outputText value="Poço ou nascente: " />
-								<p:selectBooleanCheckbox
-									value="#{situacaoController.situacao.tijoloAdobe}" />
-
-
-								<h:outputText value="Outros: " />
-							<p:inputText
-									value="#{situacaoController.situacao.tijoloAdobe}" />
-
-
-							</h:panelGrid>
-						</h:panelGrid>
-					</p:panel>
-					
-					
-							<p:panel header="DESTINO DE FAZES E URINA">
-						<p:messages />
-						<h:panelGrid columns="2" columnClasses="label, value">
-							<h:panelGrid columns="2" style="margin-bottom:10px"
-								cellpadding="5">
-								<h:outputText value="Sistema de esgoto(rede geral): " />
-								<p:selectBooleanCheckbox value ="#{situacaoController.situacao.tijoloAdobe}" />
-
-								<h:outputText value="Fossa: " />
-								<p:selectBooleanCheckbox
-									value="#{situacaoController.situacao.tijoloAdobe}" />
-
-
-								<h:outputText value="Céu aberto: " />
-							<p:selectBooleanCheckbox
-									value="#{situacaoController.situacao.tijoloAdobe}" />
-
-
-							</h:panelGrid>
-						</h:panelGrid>
-					</p:panel>
-					
-					
-				</h:panelGrid>
-				</p:panel>
 				</p:tab>
 
 				<p:tab id="confirm" title="Confirmação">
@@ -396,6 +417,28 @@
 			</p:wizard>
 
 		</h:form>
-
+		<h:outputStylesheet id="fluidGridCSS">  
+    .pe-fluidgrid-item {  
+        width: 160px;  
+        height: 60px;  
+    }  
+      
+    .pe-fluidgrid-item input {  
+        width: 150px;  
+    }  
+  
+    .pe-fluidgrid-item.calendar input {  
+        width: 120px;  
+    }  
+  
+    .pe-fluidgrid-item.select .ui-selectonemenu {  
+        width: 134px !important;  
+    }  
+      
+    .dynaFormLabel {  
+        font-weight: bold;  
+        margin-bottom: 7px;  
+    }  
+</h:outputStylesheet>
 	</ui:define>
 </ui:composition>
