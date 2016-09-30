@@ -1,0 +1,269 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	template="/WEB-INF/templates/Layout.xhtml">
+
+	<ui:define name="content">
+<br/>
+		<h:form>
+
+			<p:growl id="growl" sticky="true" showDetail="true" />
+
+			<p:wizard flowListener="#{userWizard.onFlowProcess}">
+				<p:tab id="personal" title="Família">
+					<p:panel header="Cadastrar Família">
+						<p:messages />
+						<h:panelGrid columns="2" columnClasses="label, value">
+							<h:outputText value="Nome do Representante: *" />
+							<p:inputText value="#{familiaController.familia.chefeFamilia}"
+								required="true" label="Chefe da Familia" />
+							<h:outputText value="CPF: *" />
+							<p:inputText id="cpfChefe"
+								value="#{familiaController.familia.cpfChefe}" required="true"
+								label="CPF do Chefe" />
+
+							<h:outputText value="Logradouro: " />
+							<p:inputText value="#{familiaController.familia.logradouro}"
+								label="Logradouro" />
+
+							<h:outputText value="Número: " />
+							<p:inputText value="#{familiaController.familia.numero}" />
+
+							<p:outputLabel for="uf" value="UF: " />
+							<p:selectOneMenu id="uf" value="#{familiaController.familia.uf}"
+								style="width:150px">
+								<p:ajax listener="#{dropdownView.onCountryChange}" update="uf" />
+								<f:selectItem itemLabel="Pernambuco" itemValue="pe"
+									noSelectionOption="true" />
+								<f:selectItem itemLabel="Acre" itemValue="ac"
+									noSelectionOption="true" />
+								<f:selectItem itemLabel="Amazonas" itemValue="am"
+									noSelectionOption="true" />
+								<f:selectItem itemLabel="Amapá" itemValue="ap"
+									noSelectionOption="true" />
+								<f:selectItem itemLabel="Bahia" itemValue="ba"
+									noSelectionOption="true" />
+								<f:selectItem itemLabel="Brasília" itemValue=""
+									noSelectionOption="true" />
+								<f:selectItem itemLabel="Ceará" itemValue="ce"
+									noSelectionOption="true" />
+							</p:selectOneMenu>
+
+							<h:outputText value="Bairro: " />
+							<p:inputText value="#{familiaController.familia.bairro}" />
+							<h:outputText value="CEP: " />
+							<p:inputText value="#{familiaController.familia.cep}">
+								<f:validateLength maximum="9" />
+								<f:convertNumber integerOnly="true" type="number" />
+							</p:inputText>
+
+							<h:outputText value="Código do Município: " />
+							<p:inputText id="codigo"
+								value="#{familiaController.familia.codigoMunicipio}">
+								<f:validateLength maximum="7" />
+							</p:inputText>
+
+							<h:outputText value="Segmento: " />
+							<p:inputText id="segmento"
+								value="#{familiaController.familia.segmento}">
+								<f:validateLength maximum="2" />
+								<f:convertNumber integerOnly="true" type="number" />
+							</p:inputText>
+							<h:outputText value="Área: " />
+							<p:inputText id="area" value="#{familiaController.familia.area}">
+								<f:validateLength maximum="3" />
+								<f:convertNumber integerOnly="true" type="number" />
+							</p:inputText>
+
+							<h:outputText value="Microarea: " />
+							<p:inputText id="microarea"
+								value="#{familiaController.familia.microarea}">
+								<f:validateLength minimum="2" />
+							</p:inputText>
+							<p:outputLabel for="Data" value="Data" />
+							<p:calendar id="Data" value="#{familiaController.familia.data}"
+								mode="Data" />
+
+							<h:outputText value="Ir para último? " />
+							<h:selectBooleanCheckbox value="#{userWizard.skip}" />
+						</h:panelGrid>
+					</p:panel>
+				</p:tab>
+
+				<p:tab id="membro" title="Membro da Familia">
+					<p:panel header="Cadastrar Membro da Familia">
+						<p:messages />
+						<h:panelGrid columns="2" columnClasses="label, value">
+							<h:outputText value="" /> 
+							<h:inputHidden value="#{membroController.membro.familiaId}" />
+
+							<h:outputText value="Nome: " />
+							<p:inputText value="#{membroController.membro.cpf}" />
+
+							<h:outputText value="CPF: " />
+							<p:inputText value="#{membroController.membro.cpf}" />
+							<h:outputText value="Data de Nascimento: " />
+							<p:calendar id="german"
+								value="#{membroController.membro.dataNascimento}" locale="de"
+								navigator="true" pattern="yyyy-MMM-dd" />
+
+
+							<h:outputText value="Idade: " />
+							<p:inputText value="#{membroController.membro.idade}" />
+
+							<p:outputLabel for="sexo" value="Sexo:" />
+							<p:selectOneRadio id="sexo"
+								value="#{membroController.membro.sexo}">
+								<f:selectItem itemLabel="Masculino" itemValue="M" />
+								<f:selectItem itemLabel="Feminino" itemValue="F" />
+
+							</p:selectOneRadio>
+
+
+
+
+							<p:outputLabel for="escolaridade" value="Escolaridade: " />
+							<p:selectOneMenu id="escolaridade"
+								value="#{membroController.membro.escolaridade}"
+								style="width:150px">
+								<p:ajax listener="#{dropdownView.onCountryChange}" update="uf" />
+								<p:ajax listener="#{dropdownView.onCountryChange}"
+									update="escolaridade" />
+								<f:selectItem itemLabel="Selecione a Escolaridade" itemValue=""
+									noSelectionOption="true" />
+								<f:selectItem itemLabel="Fundamental - Incompleto"
+									itemValue="Fundamental - Incompleto" noSelectionOption="true" />
+								<f:selectItem itemLabel="Fundamental - Completo"
+									itemValue="Fundamental - Completo" noSelectionOption="true" />
+								<f:selectItem itemLabel="Médio - Incompleto"
+									itemValue="Médio - Incompleto" noSelectionOption="true" />
+								<f:selectItem itemLabel="Superior - Incompleto"
+									itemValue="Superior - Incompleto" noSelectionOption="true" />
+								<f:selectItem itemLabel="Superior - Completo"
+									itemValue="Superior - Completo" noSelectionOption="true" />
+								<f:selectItem
+									itemLabel="Pós-graduação (Lato senso) - Incompleto"
+									itemValue="Pós-graduação (Lato senso) - Incompleto"
+									noSelectionOption="true" />
+								<f:selectItem
+									itemLabel="Pós-graduação (Lato senso) - Incompleto"
+									itemValue="Pós-graduação (Lato senso) - Incompleto"
+									noSelectionOption="true" />
+
+								<f:selectItem
+									itemLabel="Pós-graduação (Stricto sensu, nível mestrado) - Incompleto"
+									itemValue="Pós-graduação (Stricto sensu, nível mestrado) - Incompleto"
+									noSelectionOption="true" />
+								<f:selectItem
+									itemLabel="Pós-graduação (Stricto sensu, nível doutor) - Incompleto"
+									itemValue="Pós-graduação (Stricto sensu, nível doutor) - Incompleto"
+									noSelectionOption="true" />
+								<f:selectItem
+									itemLabel="Pós-graduação (Stricto sensu, nível doutor) - Completo"
+									itemValue="Pós-graduação (Stricto sensu, nível doutor) - Completo"
+									noSelectionOption="true" />
+								<f:selectItem itemLabel="Sem escolaridade"
+									itemValue="Sem escolaridade" noSelectionOption="true" />
+							</p:selectOneMenu>
+
+							<h:outputText value="Ocupação: " />
+							<p:inputText value="#{membroController.membro.ocupacao}" />
+
+							<h:outputText value="Condições de Saúde: " />
+							<p:inputText value="#{membroController.membro.gestante}" />
+							<h:outputText value=" " />
+							<p:selectManyCheckbox id="basic">
+								<f:selectItem itemLabel="Diabetico" itemValue="Diabetico" />
+								<f:selectItem itemLabel="Gestante" itemValue="Gestante" />
+								<f:selectItem itemLabel="Hipertenso" itemValue="Hipertenso" />
+							</p:selectManyCheckbox>
+
+
+
+
+							<h:outputText value="Ir para último?" />
+							<h:selectBooleanCheckbox value="#{userWizard.skip}" />
+						</h:panelGrid>
+					</p:panel>
+				</p:tab>
+
+				<p:tab id="contact" title="Situações">
+					<p:panel header="Situações">
+						<p:messages />
+						<h:panelGrid columns="2" columnClasses="label, value">
+							<h:outputText value="Email: *" />
+							<p:inputText value="#{userWizard.user.email}" required="true"
+								label="Email" />
+
+							<h:outputText value="Phone: " />
+							<p:inputText value="#{userWizard.user.phone}" />
+
+							<h:outputText value="Additional Info: " />
+							<p:inputText value="#{userWizard.user.info}" />
+						</h:panelGrid>
+					</p:panel>
+				</p:tab>
+
+				<p:tab id="confirm" title="Confirmação">
+					<p:panel header="Confirmação dos dados cadastrados">
+						<h:panelGrid id="confirmation" columns="3"
+							columnClasses="grid,grid,grid">
+							<h:panelGrid columns="2" columnClasses="label, value">
+								<h:outputText value="Firstname: " />
+								<h:outputText value="#{userWizard.user.firstname}"
+									styleClass="outputLabel" />
+
+								<h:outputText value="Lastname: " />
+								<h:outputText value="#{userWizard.user.lastname}"
+									styleClass="outputLabel" />
+
+								<h:outputText value="Age: " />
+								<h:outputText value="#{userWizard.user.age}"
+									styleClass="outputLabel" />
+							</h:panelGrid>
+
+							<h:panelGrid columns="2" columnClasses="label, value">
+								<h:outputText value="Street: " />
+								<h:outputText value="#{userWizard.user.street}"
+									styleClass="outputLabel" />
+
+								<h:outputText value="Postal: " />
+								<h:outputText value="#{userWizard.user.postalCode}"
+									styleClass="outputLabel" />
+
+								<h:outputText value="City: " />
+								<h:outputText value="#{userWizard.user.city}"
+									styleClass="outputLabel" />
+							</h:panelGrid>
+
+							<h:panelGrid columns="2" columnClasses="label, value">
+								<h:outputText value="Email: " />
+								<h:outputText value="#{userWizard.user.email}"
+									styleClass="outputLabel" />
+
+								<h:outputText value="Phone " />
+								<h:outputText value="#{userWizard.user.phone}"
+									styleClass="outputLabel" />
+
+								<h:outputText value="Info: " />
+								<h:outputText value="#{userWizard.user.info}"
+									styleClass="outputLabel" />
+
+								<h:outputText />
+								<h:outputText />
+							</h:panelGrid>
+						</h:panelGrid>
+
+						<p:commandButton value="Submit"
+							actionListener="#{userWizard.save}" update="growl"
+							process="@this" />
+					</p:panel>
+				</p:tab>
+			</p:wizard>
+
+		</h:form>
+
+	</ui:define>
+</ui:composition>

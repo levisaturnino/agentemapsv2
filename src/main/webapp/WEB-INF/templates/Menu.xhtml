@@ -5,17 +5,29 @@
 	
 	<nav class="aw-menu">
 		<ul>
-			<li class="is-selected">
+		<!-- <li class="is-selected">
+				<h:link outcome="index.xhtml"><i class="fa  fa-fw  fa-home"></i>Home</h:link>
+			</li> -->
+			<li >
 				<h:link outcome="index.xhtml"><i class="fa  fa-fw  fa-home"></i>Home</h:link>
 			</li>
+				<p:separator></p:separator>
 			<li>
 				<h:link outcome="listarAgente.xhtml"> <i class="fa  fa-fw  fa-user"></i>Agente</h:link>
 			</li>
 			<li >
-				<h:link outcome="cadastrarFamilia.xhtml"><i class="fa  fa-fw  fa-file-text"></i>Família</h:link>
+				<h:link outcome="cadastrarFamilia.xhtml"><i class="fa  fa-fw  fa-group"></i>Família</h:link>
+			</li>
+				<li>
+				<h:link outcome="OrderForm.xhtml"><i class="fa  fa-fw   fa-file-text"></i>Relatório</h:link>
 			</li>
 			<li>
-				<h:link outcome="OrderForm.xhtml"><i class="fa  fa-fw  fa-cog"></i>Relatório</h:link>
+			<p:separator></p:separator>
+				<h:link outcome="OrderForm.xhtml"><i class="fa  fa-fw  fa-cog"></i>Administrador</h:link>
+			</li>
+					<p:separator></p:separator>
+			<li>
+				<h:link outcome="OrderForm.xhtml"><i class="fa  fa-fw  fa-info"></i>Sobre</h:link>
 			</li>
 		</ul>
 	</nav>
