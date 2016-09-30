@@ -93,7 +93,7 @@ public class Membro implements java.io.Serializable {
 		this.cpf = cpf;
 	}
 
-	@Column(name = "nome", nullable = false)
+	@Column(name = "nome")
 	public String getNome() {
 		return this.nome;
 	}
@@ -112,7 +112,7 @@ public class Membro implements java.io.Serializable {
 		this.dataNascimento = dataNascimento;
 	}
 
-	@Column(name = "idade", nullable = false)
+	@Column(name = "idade")
 	public int getIdade() {
 		return this.idade;
 	}
@@ -121,7 +121,7 @@ public class Membro implements java.io.Serializable {
 		this.idade = idade;
 	}
 
-	@Column(name = "sexo", nullable = false, length = 1)
+	@Column(name = "sexo", length = 1)
 	public String getSexo() {
 		return this.sexo;
 	}
@@ -139,7 +139,7 @@ public class Membro implements java.io.Serializable {
 		this.escolaridade = escolaridade;
 	}
 
-	@Column(name = "ocupacao", nullable = false)
+	@Column(name = "ocupacao")
 	public String getOcupacao() {
 		return this.ocupacao;
 	}
@@ -148,7 +148,7 @@ public class Membro implements java.io.Serializable {
 		this.ocupacao = ocupacao;
 	}
 
-	@Column(name = "condicoes_saude", nullable = false)
+	@Column(name = "condicoes_saude")
 	public String getCondicoesSaude() {
 		return this.condicoesSaude;
 	}

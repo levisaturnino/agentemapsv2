@@ -9,9 +9,8 @@
 		<param-value>Development</param-value>
 	</context-param>
 	<welcome-file-list>
-		<welcome-file>index.html</welcome-file>
-		<welcome-file>index.xhtml</welcome-file>
-		<welcome-file>index.jsp</welcome-file>
+		<welcome-file>02loginAdm.xhtml</welcome-file>
+
 	</welcome-file-list>
 	<servlet>
 		<servlet-name>Faces Servlet</servlet-name>

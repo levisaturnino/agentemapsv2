@@ -103,7 +103,7 @@
 							<h:inputHidden value="#{membroController.membro.familiaId}" />
 
 							<h:outputText value="Nome: " />
-							<p:inputText value="#{membroController.membro.cpf}" />
+							<p:inputText value="#{membroController.membro.nome}" />
 
 							<h:outputText value="CPF: " />
 							<p:inputText value="#{membroController.membro.cpf}" />
@@ -155,7 +155,10 @@
 							<p:inputText value="#{membroController.membro.ocupacao}" />
 
 							<h:outputText value="Condições de Saúde: " />
-							<p:inputText value="#{membroController.membro.gestante}" />
+							
+							<p:inputText value="#{membroController.membro.condicoesSaude}" />
+							
+							
 							<h:outputText value=" " />
 							<p:selectManyCheckbox id="grid"  layout="grid" columns="1">
 								<f:selectItem itemLabel="Diabetico" itemValue="Diabetico" /><br/>
@@ -179,7 +182,7 @@
 
 							<h:outputText value="Cadastrar membro" />
 							<p:commandButton value="Cadastrar"
-								actionListener="#{userWizard.save}" update="growl"
+								actionListener="#{membroController.adicionarMembro()}" update="growl"
 								process="@this" />
 
 
@@ -362,32 +365,32 @@
             <p:panel header="Confirmação">
                 <h:panelGrid id="confirmation" columns="3" columnClasses="grid,grid,grid">
                     <h:panelGrid columns="2" columnClasses="label, value">
-                        <h:outputText value="Firstname: " />
-                        <h:outputText value="#{userWizard.user.firstname}" styleClass="outputLabel"/>
+                        <h:outputText value="Representante: " />
+                        <h:outputText value="#{familiaController.familia.chefeFamilia}" styleClass="outputLabel"/>
  
-                        <h:outputText value="Lastname: " />
-                        <h:outputText value="#{userWizard.user.lastname}" styleClass="outputLabel"/>
+                        <h:outputText value="CPF: " />
+                        <h:outputText value="#{familiaController.familia.cpfChefe}"  styleClass="outputLabel"/>
  
-                        <h:outputText value="Age: " />
-                        <h:outputText value="#{userWizard.user.age}" styleClass="outputLabel"/>
+                        <h:outputText value="Logradouro: " />
+                        <h:outputText value="#{familiaController.familia.logradouro}" styleClass="outputLabel"/>
                     </h:panelGrid>
  
                     <h:panelGrid columns="2" columnClasses="label, value">
-                        <h:outputText value="Street: " />
-                        <h:outputText value="#{userWizard.user.street}" styleClass="outputLabel"/>
+                        <h:outputText value="Numero: " />
+                        <h:outputText value="#{familiaController.familia.numero}" styleClass="outputLabel"/>
  
-                        <h:outputText value="Postal: " />
-                        <h:outputText value="#{userWizard.user.postalCode}" styleClass="outputLabel"/>
+                        <h:outputText value="UF: " />
+                        <h:outputText value="#{familiaController.familia.numero}" styleClass="outputLabel"/>
  
                         <h:outputText value="City: " />
                         <h:outputText value="#{userWizard.user.city}" styleClass="outputLabel"/>
                     </h:panelGrid>
  
                     <h:panelGrid columns="2" columnClasses="label, value">
-                        <h:outputText value="Email: " />
-                        <h:outputText value="#{userWizard.user.email}" styleClass="outputLabel"/>
+                        <h:outputText value="Nome do Membro: " />
+                        <h:outputText value="#{membroController.membro.nome}" styleClass="outputLabel"/>
  
-                        <h:outputText value="Phone " />
+                        <h:outputText value=" " />
                         <h:outputText value="#{userWizard.user.phone}" styleClass="outputLabel"/>
  
                         <h:outputText value="Info: " />
