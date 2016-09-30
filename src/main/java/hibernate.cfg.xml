@@ -48,7 +48,7 @@
 		<mapping class="br.com.agentemaps.model.Membro" />
 		<mapping class="br.com.agentemaps.model.TipoCasa" />
 		<mapping class="br.com.agentemaps.model.TratamentoAgua" />
-
+<mapping class="br.com.agentemaps.model.Situacao" />
 		<mapping class="br.com.agentemaps.model.Visita" />
 
 		<!-- <mapping resource="com/livro/capitulo3/crudxml/Contato.hbm.xml" /> -->
