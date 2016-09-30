@@ -179,8 +179,10 @@
 								<f:selectItem itemLabel="Gestante" itemValue="Gestante" />
 								<f:selectItem itemLabel="Hipertenso" itemValue="Hipertenso" />
 							</p:selectManyCheckbox>
-
-
+<h:outputText value="Cadastrar membro" />
+	<p:commandButton value="Cadastrar"
+							actionListener="#{userWizard.save}" update="growl"
+							process="@this" />
 
 
 							<h:outputText value="Ir para último?" />
@@ -323,7 +325,7 @@
 
 
 								<h:outputText value="Céu aberto: " />
-							<p:inputText
+							<p:selectBooleanCheckbox
 									value="#{situacaoController.situacao.tijoloAdobe}" />
 
 
