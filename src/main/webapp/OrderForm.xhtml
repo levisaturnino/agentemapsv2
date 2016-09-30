@@ -6,16 +6,16 @@
 	template="/WEB-INF/templates/Layout.xhtml">
 	
 <ui:define name="content">
-	<h1 class="aw-page-title">New Order</h1>
+	<h1 class="aw-page-title">Relatório</h1>
 	
 	<h:form id="frm">
 		
-		<p:toolbar>
+	<!-- 	<p:toolbar>
 			<p:toolbarGroup>
 				<p:commandButton value="Save" action="#{orderManagerController.save}"
 					process="@this masterPanel" update="@form" />
 			</p:toolbarGroup>
-		</p:toolbar>
+		</p:toolbar> -->
 		
 		<p:messages autoUpdate="false" />
 		
@@ -23,26 +23,27 @@
 			layout="grid" styleClass="panelgrid-noborder ui-fluid" 
 			style="margin-top: 20px; margin-bottom: 40px">
 		
-			<p:outputLabel value="Customer name" for="customer" />
+			<p:outputLabel value="Pesquisar por familia" for="customer" />
 			<p:inputText id="customer" value="#{orderManagerController.order.customer}" />
 			
-			<p:outputLabel value="Phone number" for="phone" />
+			<p:outputLabel value="por Pesquisar agente" for="phone" />
 			<p:inputText id="phone" value="#{orderManagerController.order.phone}" />
 			
-			<p:outputLabel value="Payment method" for="paymentMethod" />
+			<p:outputLabel value="por Seleção" for="paymentMethod" />
 			<p:selectOneMenu id="paymentMethod" value="#{orderManagerController.order.paymentMethod}">
-				<f:selectItem itemLabel="Select" />
-				<f:selectItem itemLabel="Credit Card" itemValue="Credit Card" />
-				<f:selectItem itemLabel="Deposit" itemValue="Deposit" />
-				<f:selectItem itemLabel="Cash" itemValue="Cash" />
+				<f:selectItem itemLabel="Selecione" />
+				<f:selectItem itemLabel="agente" itemValue="Credit Card" />
+				<f:selectItem itemLabel="Familia" itemValue="Deposit" />
+				<f:selectItem itemLabel="Membro" itemValue="Cash" />
+						<f:selectItem itemLabel="Adminstrador" itemValue="Cash" />
 			</p:selectOneMenu>
 			
-			<p:outputLabel value="Delivery date" for="deliveryDate"/>
+			<p:outputLabel value="por membro" for="deliveryDate"/>
 			<p:calendar id="deliveryDate" pattern="MM/dd/yyyy" 
 				value="#{orderManagerController.order.deliveryDate}"/>
 		</p:panelGrid>
 		
-		<p:commandButton value="New line" action="#{orderManagerController.newLine}"
+		<p:commandButton value="pesquisar" action="#{orderManagerController.newLine}"
 			oncomplete="PF('lineDialog').show()" process="@this" update="linePanel">
 			<p:resetInput target="linePanel" />
 		</p:commandButton>
@@ -52,11 +53,11 @@
 			reflow="true"
 			style="margin-top: 10px">
 			
-			<p:column headerText="Description">
+			<p:column headerText="Nome">
 				<h:outputText value="#{line.description}"/>
 			</p:column>
 			
-			<p:column headerText="Type">
+			<p:column headerText="CPF">
 				<h:outputText value="#{line.type.description}"/>
 			</p:column>
 			
@@ -66,11 +67,11 @@
 				</h:outputText>
 			</p:column>
 			
-			<p:column headerText="Stock">
+			<p:column headerText="Logradouro">
 				<h:outputText value="1235" />
 			</p:column>
 			
-			<p:column headerText="Weight">
+			<p:column headerText="Bairro">
 				<h:outputText value="10 lbs" />
 			</p:column>
 		
